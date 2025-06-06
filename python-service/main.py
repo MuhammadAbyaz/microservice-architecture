@@ -3,15 +3,16 @@ from fastapi import FastAPI
 
 
 from fastapi import FastAPI
+from dotenv import load_dotenv, dotenv_values
+from prometheus_fastapi_instrumentator import Instrumentator
 import uvicorn
 
-
-from dotenv import load_dotenv, dotenv_values
 
 load_dotenv()
 
 app = FastAPI()
 
+Instrumentator().instrument(app).expose(app)
 
 @app.get("/python-service/health")
 def health_check():

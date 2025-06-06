@@ -8,6 +8,7 @@ import (
 	"os"
 
 	"github.com/joho/godotenv"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
 func main() {
@@ -19,6 +20,7 @@ func main() {
 	port := fmt.Sprintf(":%s", os.Getenv("PORT"))
 
 	http.HandleFunc("/go-service/health", handlers.HealthCheck)
+	http.Handle("/metrics", promhttp.Handler())
 
 	log.Printf("Starting server on port %s", port)
 

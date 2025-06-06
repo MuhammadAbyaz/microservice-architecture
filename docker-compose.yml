@@ -1,0 +1,15 @@
+services:
+  python-service:
+    container_name: python_service
+    build:
+      context: ./python-service
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+  go-service:
+    container_name: go_service
+    build:
+      context: ./golang-service
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001" 
