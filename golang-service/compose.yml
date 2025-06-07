@@ -1,6 +1,0 @@
-services:
-  golang-service:
-    build:
-      context: .
-    ports:
-      - 3001:3001
