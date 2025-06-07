@@ -1,5 +1,5 @@
 services:
-  server:
+  python-service:
     build:
       context: .
     ports:
